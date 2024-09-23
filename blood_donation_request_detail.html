@@ -1,0 +1,16 @@
+<h1>Blood Donation Request Detail</h1>
+<p>User: {{ request.user.username }}</p>
+<p>Blood Type: {{ request.blood_type }}</p>
+<p>Request Type: {{ request.request_type }}</p>
+<p>Region: {{ request.region }}</p>
+<p>Province: {{ request.province }}</p>
+<p>Municipality: {{ request.municipality }}</p>
+
+<h2>User Profile Information</h2>
+<p>Availability: {{ profile.availability }}</p>
+<p>Blood Type: {{ profile.blood_type }}</p>
+<p>Region: {{ profile.region }}</p>
+<p>Province: {{ profile.province }}</p>
+<p>Municipality: {{ profile.municipality }}</p>
+
+<a href="{% url 'blood_donation_request_list' %}">Back to List</a>

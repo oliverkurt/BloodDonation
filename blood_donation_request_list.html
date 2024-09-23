@@ -1,0 +1,29 @@
+<h1>Blood Donation Requests</h1>
+<table>
+    <tr>
+        <th>User</th>
+        <th>Blood Type</th>
+        <th>Request Type</th>
+        <th>Region</th>
+        <th>Province</th>
+        <th>Municipality</th>
+        <th>Actions</th>
+    </tr>
+    {% for request in requests %}
+    <tr>
+        <td>{{ request.user.username }}</td>
+        <td>{{ request.blood_type }}</td>
+        <td>{{ request.request_type }}</td>
+        <td>{{ request.region }}</td>
+        <td>{{ request.province }}</td>
+        <td>{{ request.municipality }}</td>
+        <td>
+            <a href="{% url 'edit_blood_donation_request' request.pk %}">Edit</a>
+            <form action="{% url 'delete_blood_donation_request' request.pk %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
