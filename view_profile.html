@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Profile</h1>
+        <div class="profile-details">
+            <h2>Profile Information</h2>
+            <p><strong>First Name:</strong> {{ profile.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ profile.last_name }}</p>
+            <p><strong>Weight:</strong> {{ profile.weight }} kg</p>
+            <p><strong>Height:</strong> {{ profile.height }} cm</p>
+            <p><strong>Region:</strong> {{ profile.region }}</p>
+            <p><strong>Province:</strong> {{ profile.province }}</p>
+            <p><strong>Municipality:</strong> {{ profile.municipality }}</p>
+            <p><strong>Blood Type:</strong> {{ profile.blood_type }}</p>
+            <p><strong>Availability:</strong> {{ profile.availability }}</p>
+        </div>
+
+        <div class="donation-requests">
+            <h2>Blood Donation Requests</h2>
+            <ul>
+                {% for request in donation_requests %}
+                    <li>
+                        <strong>Date:</strong> {{ request.request_date }} |
+                        <strong>Blood Type:</strong> {{ request.blood_type }} |
+                        <strong>Status:</strong> {{ request.status }}
+                    </li>
+                {% empty %}
+                    <li>No donation requests found.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

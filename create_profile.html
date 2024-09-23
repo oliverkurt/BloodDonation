@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Profile</title>
+</head>
+<body>
+    <h1>Create Profile</h1>
+    <form method="get">
+        {% csrf_token %}
+        {{ form.region }}
+        <button type="submit">Select Region</button>
+    </form>
+
+    <form method="get">
+        {% csrf_token %}
+        {{ form.province }}
+        <button type="submit">Select Province</button>
+    </form>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Profile</button>
+    </form>
+</body>
+</html>
+
